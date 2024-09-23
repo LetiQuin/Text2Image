@@ -1,0 +1,26 @@
+import pygame
+
+def text_to_pixels(text, font_path, font_size):
+    # Initialize Pygame
+    pygame.init()
+
+    # Load font
+    font = pygame.font.Font(font_path, font_size)
+
+    # Render text
+    text_surface = font.render(text, True, (255, 255, 255))  # White text
+    width, height = text_surface.get_size()
+
+    # Create a bitmap (pixel array)
+    bitmap = pygame.Surface((width, height), pygame.SRCALPHA)
+
+    # Blit the text onto the bitmap
+    bitmap.blit(text_surface, (0, 0))
+
+    # Get pixel data
+    pixel_data = pygame.surfarray.array3d(bitmap)
+
+    return pixel_data
+
+# Usage
+pixel_data = text_to_pixels("Hello", "path/to/font.ttf", 36)
