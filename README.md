@@ -79,5 +79,3 @@ python
     def save_text_image(text_image, output_path):
         with open(output_path, 'w') as file:
             file.write(text_image)
-
-Full Algorithm Code:
